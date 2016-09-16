@@ -1,0 +1,14 @@
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="/scripts/players/newPlayerCtrl.js"></script>
+  <body ng-app="newPlayerApp">
+    <h1>New Player Page</h1>
+    <form ng-controller="addPlayer" ng-submit="insertPlayer()" action="">
+      Player Name:<input type="text" ng-model="name"><br>
+      Position:<select ng-model="position" ng-options="position for position in positions track by position"></select><br>
+      NFL Team:<select ng-model="nfl" ng-options="nfl_team for nfl_team in nfl_teams track by nfl_team"><select><br>
+      Fantasy Team:<select ng-model="fantTeam" ng-options="team.team_name for team in teams"></select><br><br>
+      <input type="submit" id="submit" value="Update Player"/>
+    </form>
+  </body>
+</html>

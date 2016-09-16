@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="scripts/draftPick/draftPickApp.js"></script>
+  <script src="scripts/draftPick/draftPickCtrl.js"></script>
+
+
+  <body ng-app="draftPick">
+    <h1>Draft Pick Enter Page</h1><br>
+    <table>
+      <tr>
+        <td><a href="/">Draft</a></td><td><a href="/players/">Players</a></td><td><a href="/teams">Teams</a></td>
+      </tr>
+    </table>
+    <form ng-controller="loadPage" ng-submit="addDraftPick()" action="">
+
+      Pick:<input ng-model="pick" type="text"><br>
+      Round:<input ng-model="round" type="text"><br>
+
+      Player:<input ng-model="filterPlayer" type="text" name="playerSearch"><br>
+
+      <select ng-options="player.name for player in players | orderBy: 'name' | filter: filterPlayer track by player.pid" ng-model="players.selectedPlayer" size=10></select><br>
+
+      Team:<select ng-options="team.team_name for team in teams track by team.team_id" ng-model="teams.selectedTeam"></select><br><br>
+
+      <input type="submit" id="submit" value="Add Draft Pick"/>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+body{
+      background-image: url("../pics/background.jpg");
+      font-size: 95%;
+}
+#app{
+  background:white;
+}
+h1{
+  text-align:center;
+  font-family: 'Indie Flower', cursive;
+  font-size: 3em;
+}
+
+#draftboard{
+  border-collapse: collapse;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+#draftboard td {
+  border: 1px solid black;
+}
+
+.columnHeader{
+  background:black;
+  color: white;
+  text-align: center;
+}
+
+.round td{
+  background:black;
+  color: white;
+  text-align: center;
+}
+.unpicked {
+  background: #FAF0E6;
+}
+.unpicked .player {
+  visibility: hidden;
+}
+.WR {
+  background:lightgreen;
+}
+.RB {
+  background:#ECC3BF;
+}
+.QB {
+  background:#FFDAB9;
+}
+.TE{
+  background:#FFF68F;
+}
+.K{
+  background: #EEE0E5;
+}
+.DEF{
+  background: #E0FFFF;
+}

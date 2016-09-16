@@ -1,0 +1,35 @@
+<html>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="/scripts/players/playersApp.js"></script>
+  <script src="/scripts/players/playersCtrl.js"></script>
+  <style>
+  .horizontal-collapse {
+    height: 70px;
+    }
+  </style>
+
+
+  <body ng-app="playersApp">
+    <h1>Players Edit Page</h1>
+    <table>
+      <tr>
+        <td><a href="/">Draft</a></td><td><a href="/players/">Players</a></td><td><a href="/teams">Teams</a></td>
+      </tr>
+    </table>
+    <a href="/players/addPlayer">Add Player</a>
+    <table ng-controller="getPlayers">
+        <tr>
+          <th>Name</th><th>Pos</th><th>Team</th><th>Fant Team</th>
+        </tr>
+        <tr ng-repeat="player in players | orderBy:'name'">
+          <td>{{player.name}}</td>
+          <td>{{player.position}}</td>
+          <td>{{player.nfl_team}}</td>
+          <td>{{teams[player.fant_team-1].team_name}}</td>
+          <td><a href="/players/updatePlayer#/?pid={{player.pid}}">edit</a></td>
+          <td><button ng-click="deletePlayer(player)">delete</button></td>
+        </tr>
+    </table>
+  </body>
+</html>

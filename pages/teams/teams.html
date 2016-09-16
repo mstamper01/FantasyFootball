@@ -1,0 +1,23 @@
+<html>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="/scripts/teams/getTeamsCtrl.js"></script>
+  <body ng-app="getTeamsApp">
+    <h1>Teams Page</h1>
+    <table>
+      <tr>
+        <td><a href="/">Draft</a></td><td><a href="/players/">Players</a></td><td><a href="/teams">Teams</a></td>
+      </tr>
+    <table>
+    <table ng-controller="getTeams">
+      <tr>
+        <th>Team Name</th><th>Manager</th></th>
+      </tr>
+      <tr ng-repeat="team in teams">
+        <td>{{team.team_name}}</td>
+        <td>{{team.team_manager}}</td>
+        <td><a href="/teams/updateTeam#/?id={{team.team_id}}">edit</a><td>
+      </tr>
+    </table>
+  </body>
+</html>
