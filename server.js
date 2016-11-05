@@ -7,6 +7,7 @@ var draft = require('./api/draft/draft');
 var players = require('./api/players/players');
 var teams = require('./api/teams/teams');
 var nflTeams = require('./api/nflTeams/nflTeams');
+var week = require('./api/week/week');
 var bodyParser = require('body-parser');
 
 var connection = mysql.createConnection(dbConfig);
@@ -179,6 +180,40 @@ app.get('/api/nfl/', function(req, res){
   try{
       nflTeams.getNFLTeams(connection, function(nflTeams){
           res.json(nflTeams);
+      });
+  }
+  catch(err)
+  {
+    console.log(err);
+    res.status(500).send("Error processing request");
+  }
+});
+
+//Weeks
+app.get('/api/week/:fant_team/:week', function(req, res){
+  try{
+    week.getWeek(req.params.fant_team, req.params.week, connection, function(week){
+        res.json(week);
+    });
+  }
+  catch(err)
+  {
+    console.log(err);
+    res.status(500).send("Error processing request");
+  }
+});
+app.put('/api/week/', function(req, res){
+  week.updateWeek(req.body, connection, function(status){
+    if(status)
+      res.sendStatus(200);
+    else
+      res.status(500).send("Error updating request")
+  });
+});
+app.post('/api/week/', function(req, res){
+  try{
+      week.addWeek(req.body, connection, function(results){
+        res.sendStatus(200);
       });
   }
   catch(err)
