@@ -3,12 +3,21 @@
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="styles/styles.css">
+<link rel="stylesheet" href="../semantic/dist/semantic.min.css">
+<link rel="stylesheet" href="../semantic/dist/semantic.min.js">
 
 <script src="scripts/draftBoard/myApp.js"></script>
 <script src="scripts/draftBoard/myCtrl.js"></script>
 
   <body>
-
+    <div class="ui grid">
+      <h1 class="black right floated sixteen wide column">Fantasy Football</h1>
+    </div>
+    <div class="ui three item menu">
+      <a class="active item" href="/">Draft</a>
+      <a class="item" href="/players">Players</a>
+      <a class="item" href="/teams">Teams</a>
+    </div>
     <div id = "app" ng-app="fantasyDraft">
 
       <h1>Eat Your Wheater's 2016-2017 Draft Board</h1>

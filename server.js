@@ -29,6 +29,7 @@ app.use("/styles", express.static(__dirname + '/styles'));
 app.use("/scripts", express.static(__dirname + '/scripts'));
 app.use("/files", express.static(__dirname + '/files'));
 app.use("/pages", express.static(__dirname + '/pages'));
+app.use("/semantic", express.static(__dirname + '/semantic'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({

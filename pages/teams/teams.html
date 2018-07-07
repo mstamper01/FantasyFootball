@@ -2,14 +2,19 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="/scripts/teams/getTeamsCtrl.js"></script>
+<link rel="stylesheet" href="../semantic/dist/semantic.min.css">
+<link rel="stylesheet" href="../semantic/dist/semantic.min.js">
   <body ng-app="getTeamsApp">
-    <h1>Teams Page</h1>
-    <table>
-      <tr>
-        <td><a href="/">Draft</a></td><td><a href="/players/">Players</a></td><td><a href="/teams">Teams</a></td>
-      </tr>
-    <table>
-    <table ng-controller="getTeams">
+    <div class="ui grid">
+      <h1 class="black right floated sixteen wide column">Fantasy Football</h1>
+    </div>
+    <div class="ui three item menu">
+      <a class="active item" href="/">Draft</a>
+      <a class="item" href="/players">Players</a>
+      <a class="item" href="/teams">Teams</a>
+    </div>
+    <h1>Teams</h1>
+    <table class="ui collapsing selectable celled table" ng-controller="getTeams">
       <tr>
         <th>Team Name</th><th>Manager</th></th>
       </tr>

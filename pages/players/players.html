@@ -3,6 +3,8 @@
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <script src="/scripts/players/playersApp.js"></script>
   <script src="/scripts/players/playersCtrl.js"></script>
+  <link rel="stylesheet" href="../semantic/dist/semantic.min.css">
+  <link rel="stylesheet" href="../semantic/dist/semantic.min.js">
   <style>
   .horizontal-collapse {
     height: 70px;
@@ -10,19 +12,25 @@
   </style>
 
 
-  <body ng-app="playersApp">
-    <h1>Players Edit Page</h1>
-    <table>
-      <tr>
-        <td><a href="/">Draft</a></td><td><a href="/players/">Players</a></td><td><a href="/teams">Teams</a></td>
-      </tr>
-    </table>
-    <a href="/players/addPlayer">Add Player</a>
-    <table ng-controller="getPlayers">
+  <body style="margin:25px;" ng-app="playersApp">
+    <div class="ui grid">
+      <h1 class="black right floated sixteen wide column">Fantasy Football</h1>
+    </div>
+    <div class="ui three item menu">
+      <a class="active item" href="/">Draft</a>
+      <a class="item" href="/players">Players</a>
+      <a class="item" href="/teams">Teams</a>
+    </div>
+    <h1>Players Edit</h1>
+    <div class="ui input">
+      <input type="text" ng-model="playerSearch" placeholder="Search...">
+    </div>
+    <a class="ui green button" href="/players/addPlayer">Add Player</a>
+    <table class="ui collapsing selectable celled table" ng-controller="getPlayers">
         <tr>
           <th>Name</th><th>Pos</th><th>Team</th><th>Fant Team</th>
         </tr>
-        <tr ng-repeat="player in players | orderBy:'name'">
+        <tr ng-repeat="player in players | orderBy:'name' | filter:playerSearch">
           <td>{{player.name}}</td>
           <td>{{player.position}}</td>
           <td>{{player.nfl_team}}</td>
